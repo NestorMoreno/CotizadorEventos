@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cotizador" />
+  <meta name="author" content="Nestor Moreno" />
+  <title>Eventos San Rafael</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/bootstrap-icons.css" />
+
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="main">
+    <section class="shopping-cart">
+      <header>
+        <h1>
+          <img class="" src="https://www.haciendasanrafael.co/templates/yootheme/cache/logo-san_rafael-edf3ff48.png"
+            alt="" />
+        </h1>
+        <h2 class="sub-heading">NIT 900 585895-1</h2>
+      </header>
+
+
+      <form class="row g-3">
+        <div class="row">
+          <div class="col-6">
+            <label for="" class="col-form-label-sm">Evento</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Ingrese el nombre del evento"
+              aria-label="Evento">
+          </div>
+          <div class="col-4">
+            <label for="" class="col-form-label-sm">Fecha y Hora</label>
+            <input type="datetime-local" min="2022-02-01" class="form-control form-control-sm"
+              placeholder="Fecha y Hora" aria-label="Fecha y Hora">
+          </div>
+          <div class="col-2">
+            <label for="" class="col-form-label-sm">Invitados</label>
+            <input type="number" min="1" class="form-control form-control-sm" placeholder="0" aria-label="Invitados">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <label for="" class="col-form-label-sm">Nombre</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Nombre del contacto"
+              aria-label="Nombre">
+          </div>
+          <div class="col-4">
+            <label for="" class="col-form-label-sm">Correo</label>
+            <input type="email" class="form-control form-control-sm" placeholder="Correo electrónico"
+              aria-label="Correo">
+          </div>
+          <div class="col-4">
+            <label for="" class="col-form-label-sm">Celular</label>
+            <input type="tel" class="form-control form-control-sm" placeholder="Número de celular" aria-label="Celular">
+          </div>
+        </div>
+      </form>
+
+      <br>
+
+      <section class="row g-3">
+        <ol class="ui-list shopping-cart--list" id="shopping-cart--list">
+          <script id="shopping-cart--list-item-template" type="text/template">
+              <li class="_grid shopping-cart--list-item">
+                <div class="card mb-3" >
+                  <div class="row g-0">
+                    <div class="col-1">
+                      <img src="{{=img}}" class="img-fluid " alt="...">
+                    </div>
+                    <div class="col-9">
+                      <div class="card-body">
+                        <h6 class="card-title product-name">{{=name}}</h6> <div class="price product-single-price">${{=price}}</div>
+                        <p class="card-text product-desc">{{=desc}}</p>
+                      </div>
+                    </div>
+                    <div class="col-2 _column product-modifiers" data-product-price="{{=price}}">
+                      <div class="">
+                        <button class="_btn _column product-subtract non-printable">&minus;</button>
+                        <div class="_column product-qty">0</div>
+                        <button class="_btn _column product-plus non-printable">&plus;</button>
+                      </div>
+                      <button class="_btn entypo-trash product-remove"><i class="bi bi-bag-x-fill"></i> Eliminar</button>
+                      <div class="price product-total-price">$0.00</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </script>
+        </ol>
+      </section>
+    
+
+
+      <footer class="page-footer">
+        <hr class="rgba-white-light" />
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+          <div class="col-md-8 col-12 mt-5">
+            <p>¡Organiza tu evento con nosotros!</p>
+            <p><i class="bi bi-telephone"></i> 2534048</p>
+            <p><i class="bi bi-phone"></i> 322 9474085 - 310 8744520</p>
+            <p><i class="bi bi-mailbox"></i> Cra 57 # 133-00</p>
+            <p class="non-printable">Bogotá - Colombia</p>
+            <p class="non-printable"><a href="https://haciendasanrafael.co/">Hacienda San Rafael</a></p>
+            <p class="non-printable">© 2022 Copyright</p>
+          </div>
+        </div>
+
+        <div class="row pb-3 text-center non-printable">
+          <div class="col-md-12">
+            <div class="mb-5 flex-center">
+              <a class="fb-ic">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a class="tw-ic">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a class="ins-ic">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </div>
+
+
+  <div class="price-panel non-printable">
+    <div class="row">
+      <div class="col">
+        <h5>Subtotal</h5>
+        <div class="subtotalCtr">$0.00</div>
+      </div>
+      <div class="col">
+        <div>
+        <h5>Depósito</h5>
+        <div class="depositCtr">$0.00</div>
+        </div>
+      </div>
+      <div class="col">
+        <h5>Iva (19%)</h5>
+        <div class="taxesCtr">$0.00</div>
+      </div>
+      <div class="col">
+        <h5>Total</h5>
+        <div class="totalCtr">$0.00</div>
+      </div>
+    </div>
+  </div>
+
+
+  
+
+
+
+  <div class="control-panel non-printable">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="btn-group">
+          <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+            aria-controls="offcanvasBottom">
+            <i class="bi bi-gear"></i>
+            Catálogo
+          </button>
+
+        </div>
+        <div>
+          <button class="btn btn-secondary" id="checkout-btn" type="button" aria-controls="offcanvasBottom">
+            <i class="bi bi-printer"></i>
+            Generar PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasBottomLabel">Catálogo</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body small">
+      <form>
+        <div class="row mb-3">
+          <label for="" class="col-sm-2 col-form-label">Título principal</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="textMain" value="BINGOS EL REY">
+          </div>
+          <label for="" class="col-sm-2 col-form-label">Color principal</label>
+          <div class="col-sm-2">
+            <input id="colorMain" type="color" class="form-control" id="mainColor" value="#ee2745">
+          </div>
+        </div>
+        <button id="btnSaveConfig" type="button" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script type="text/javascript" src="data/datos.json"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>
