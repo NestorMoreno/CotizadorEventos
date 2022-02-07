@@ -16,6 +16,14 @@ String.prototype.strip$ = function () {
 var app = {
 
   deposit : 500.000,
+  basicInfo :  {
+      "Event" : "asdsaasdsadasdasd",
+      "Date" : "",
+      "Guests" : 0,
+      "Name" : "",
+      "Email" : "",
+      "Phone" : "",
+    },
   products : [
     {
       "name" : "Alquiler de Casa",
@@ -160,11 +168,16 @@ var app = {
     }
   },
 
-  renderTemplates: function () {
+  renderCatalog: function () {
     "use strict";
 
-    var products = app.products,
+    var basicInfo = app.basicInfo,
+
+        temp = new t( $("#temp").html() ),
+        tempC = [],
+        products = app.products,
         content = [],
+        
         template = new t( $("#shopping-cart--list-item-template").html() );
 
     for (var i = 0; i < products.length; i += 1) {
@@ -172,16 +185,50 @@ var app = {
     }
 
     $("#shopping-cart--list").html(content.join(""));
+
+
+    tempC = temp.render(basicInfo);
+    $("#te").html(tempC.join(""));
+
+
+
   },
 
   Test: function () {
     window.print();
+  },
 
-    //window.open('mailto:test@example.com');
+
+  NewQuotation: function(){
+    
+    // $("#shopping-cart--list").html(content.join(""));
+    basicInfo.Event = "";
+
   }
 
 };
 
-app.renderTemplates();
+app.renderCatalog();
 app.setProductImages();
 app.attachEvents();
+
+
+// Self-executing function
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
