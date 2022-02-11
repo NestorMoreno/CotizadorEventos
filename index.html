@@ -9,7 +9,8 @@
   <title>Eventos San Rafael</title>
   <!-- <link href="css/bootstrap.min.css" rel="stylesheet" /> -->
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <link href="css/style.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/bootstrap-icons.css" />
@@ -18,112 +19,20 @@
 <body>
   <div class="main">
 
-   
 
-    <nav class="navbar fixed-top navbar-light bg-light">
+
+    <nav class="navbar fixed-top navbar-light bg-light non-printable">
       <div class="container-fluid">
-
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newQuotation">
-          Nueva Cotización
-        </button>
-
-
-        <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"> <i class="bi bi-gear"></i> Editar Catálogo</button>
-        <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"> <i class="bi bi-gear"></i> Adicionar Ítem</button>
-        <button class="btn btn-secondary" type="button" id="checkout-btn"  aria-controls="offcanvasBottom"><i class="bi bi-printer"></i> Generar PDF</button>
+        <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#newQuotation"><i class="bi bi-file-text"></i> Nueva Cotización</button>
+        <!-- <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#offcanvasBottom"> <i class="bi bi-gear"></i> Editar Catálogo</button> -->
+        <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#newItem"> <i class="bi bi-plus-circle"></i> Adicionar Ítem</button>
+        <button class="btn btn-secondary" type="button" id="checkout-btn" aria-controls="offcanvasBottom"><i class="bi bi-printer"></i> Generar PDF</button>
       </div>
     </nav>
 
 
-    <!-- Modal -->
-  <div class="modal fade" id="newQuotation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Datos Básicos</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="ads"class="row g-3 needs-validation" novalidate>
-            <div class="row">
-              <div class="col">
-                <label for="" class="col-form-label-sm">Evento</label>
-                <input type="text" id="quotationEvent" class="form-control form-control-sm" placeholder="Ingrese el nombre del evento" aria-label="Evento" required>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <label for="" class="col-form-label-sm">Fecha y Hora</label>
-                <input type="datetime-local" id="quotationDate" min="2022-02-01" class="form-control form-control-sm" placeholder="Fecha y Hora" aria-label="Fecha y Hora" required >
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <label for="" class="col-form-label-sm">Invitados</label>
-                <input type="number" id="quotationGuests" min="1" class="form-control form-control-sm" placeholder="0" aria-label="Invitados" required >
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <label for="" class="col-form-label-sm">Nombre</label>
-                <input type="text" id="quotationName" class="form-control form-control-sm" placeholder="Ingrese el nombre del contacto" aria-label="Nombre" required >
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <label for="" class="col-form-label-sm">Correo</label>
-                <input type="email" id="quotationEmail" class="form-control form-control-sm" placeholder="Ingrese el correo electrónico" aria-label="Correo" required >
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <label for="" class="col-form-label-sm">Celular</label>
-                <input type="tel" id="quotationPhone" class="form-control form-control-sm" placeholder="Número de celular" aria-label="Celular" required >
-              </div>
-              
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Iniciar</button> 
-        </div>
-
-      </form>
-      </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-    <!-- <div class="control-panel non-printable">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="btn-group">
-            <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
-              aria-controls="offcanvasBottom">
-              <i class="bi bi-gear"></i>
-              Catálogo
-            </button>
-  
-          </div>
-          <div>
-            <button class="btn btn-secondary" id="checkout-btn" type="button" aria-controls="offcanvasBottom">
-              <i class="bi bi-printer"></i>
-              Generar PDF
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
-
     <section class="shopping-cart">
-      <header>
+      <header class="printable">
         <h1>
           <img class="" src="https://www.haciendasanrafael.co/templates/yootheme/cache/logo-san_rafael-edf3ff48.png"
             alt="" />
@@ -131,80 +40,101 @@
         <h2 class="sub-heading">NIT 900 585895-1</h2>
       </header>
 
+      <section class="non-printable">
+      </section>
+      <br><br><br><h6 id="textInfo" class="text-success non-printable">Inicie pulsando el botón <b>Nueva Cotización</b>, a continuación, ingrese los Datos Básicos y luego realice la selección de los ítems y cantidades que serán incluídos dentro de la cotización.</h6>
 
-      <div id="te">
-        <script id="temp" type="text/template"></script>
-        <div class="row">
-          <div class="col-6">
-            Evento: {{=name}}
-          </div>
-          <div class="col-4">
-            <label for="" class="col-form-label-sm">Fecha y Hora</label>
-            <input type="datetime-local" min="2022-02-01" class="form-control form-control-sm"
-              placeholder="Fecha y Hora" aria-label="Fecha y Hora">
-          </div>
-          <div class="col-2">
-            <label for="" class="col-form-label-sm">Invitados</label>
-            <input type="number" min="1" class="form-control form-control-sm" placeholder="0" aria-label="Invitados">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <label for="" class="col-form-label-sm">Nombre</label>
-            <input type="text" class="form-control form-control-sm" placeholder="Nombre del contacto"
-              aria-label="Nombre">
-          </div>
-          <div class="col-4">
-            <label for="" class="col-form-label-sm">Correo</label>
-            <input type="email" class="form-control form-control-sm" placeholder="Correo electrónico"
-              aria-label="Correo">
-          </div>
-          <div class="col-4">
-            <label for="" class="col-form-label-sm">Celular</label>
-            <input type="tel" class="form-control form-control-sm" placeholder="Número de celular" aria-label="Celular">
-          </div>
-        </div>
-      </script>
-    </div>
+      <!-- Información Básica -->
+      <div id="te" class="d-none">
+        <script id="temp" type="text/template">
+          <div class="row BasicData">
+            <div class="col">
+              Nombre: <label id="quotationTextName">{{=name}}</label><br>
+              Evento: <label id="quotationTextEvent"> {{=event}}</label><br>
+              Fecha y Hora: <label id="quotationTextDate">{{=date}}</label><br>
+              Correo: <label id="quotationTextEmail">{{=email}}</label><br>
+              Celular: <label id="quotationTextPhone">{{=phone}}</label><br>
+              Invitados: <label id="quotationTextGuests">{{=guests}}</label><br>
+              Vigencia de la cotización: 30 días.
+            </div>
+          
+            <!-- <div class="col" class="BasicData">
+              Evento: <label id="quotationTextEvent"> </label><br>
+              Fecha y Hora: <label id="quotationTextDate"> </label><br>
+              Invitados: <label id="quotationTextGuests"> </label><br>
+              Nombre: <label id="quotationTextName"> </label><br>
+              Correo: <label id="quotationTextEmail"> </label><br>
+              Celular: <label id="quotationTextPhone"> </label><br>
+            </div>
+          </div> -->
+        </script>
+      </div>
 
 
       <br>
 
-      <!-- Selección del Catálogo -->
+
+     
+
+
+      <!-- Catálogo -->
       <section class="row g-3">
         <ol class="ui-list shopping-cart--list" id="shopping-cart--list">
-          <script id="shopping-cart--list-item-template" type="text/template">
+          <!-- <script id="shopping-cart--list-item-template" type="text/template">
               <li class="_grid shopping-cart--list-item">
-                <div class="card mb-3" >
+                 <div class="card mb-3" >
                   <div class="row g-0">
-                    <div class="col-1">
-                      <img src="{{=img}}" class="img-fluid " alt="...">
-                    </div>
                     <div class="col-9">
                       <div class="card-body">
-                        <h6 class="card-title product-name">{{=name}}</h6> <div class="price product-single-price">${{=price}}</div>
-                        <p class="card-text product-desc">{{=desc}}</p>
+                        <h6 class="card-title product-name">Nombre</h6> <div class="price product-single-price">$123456</div>
+                      
                       </div>
                     </div>
-                    <div class="col-2 _column product-modifiers" data-product-price="{{=price}}">
-                      <div class="">
+                    <div class="col-3 _column product-modifiers" data-product-price="{{=price}}">
+                      <div class="col">
                         <button class="_btn _column product-subtract non-printable">&minus;</button>
+                        <label class="printable">Cantidad</label>
                         <div class="_column product-qty">0</div>
                         <button class="_btn _column product-plus non-printable">&plus;</button>
                       </div>
-                      <button class="_btn entypo-trash product-remove"><i class="bi bi-bag-x-fill"></i> Eliminar</button>
-                      <div class="price product-total-price">$0.00</div>
+                      <div class="row">
+                        <div class="col-3">
+                          <button class="_btn product-remove"><i class="bi bi-bag-x-fill"></i></button>
+                        </div>
+                        <div class="col-3">
+                          
+                        </div>
+                        <div class="col-6">
+                          <div class="price product-total-price">$0.00</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row printable">
+                    <div class="col text-center">
+                      <img src="{{=img}}" class="img-fluid" alt="...">
                     </div>
                   </div>
                 </div>
               </li>
-            </script>
+            </script> -->
         </ol>
       </section>
-    
+      <br><br>
+      <div class="printable">
+        <div class="row BasicData">
+          <div class="col">
+            Subtotal <label class="subtotalCtr">$0.00</label><br>
+            Iva<label class="taxesCtr">$0.00</label><br>
+            Impoconsumo<label class="">$0.00</label><br>
+            Depósito<label class="depositCtr">$0.00</label><br>
+            Total<label class="totalCtr">$0.00</label>
+          </div>
+        </div>
+      </div>
 
 
-      <footer class="page-footer">
+      <footer class="page-footer printable">
         <hr class="rgba-white-light" />
         <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
           <div class="col-md-8 col-12 mt-5">
@@ -245,15 +175,20 @@
         <div class="subtotalCtr">$0.00</div>
       </div>
       <div class="col">
-        <div>
-        <h5>Depósito</h5>
-        <div class="depositCtr">$0.00</div>
-        </div>
-      </div>
-      <div class="col">
-        <h5>Iva (19%)</h5>
+        <h5>Iva</h5>
         <div class="taxesCtr">$0.00</div>
       </div>
+      <div class="col">
+        <h5>Impoconsumo</h5>
+        <div class="">$0.00</div>
+      </div>
+      <div class="col">
+        <div>
+          <h5>Depósito</h5>
+          <div class="depositCtr">$0.00</div>
+        </div>
+      </div>
+      
       <div class="col">
         <h5>Total</h5>
         <div class="totalCtr">$0.00</div>
@@ -262,40 +197,122 @@
   </div>
 
 
-  
 
-
-
- 
-
-
-
-
-
-
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasBottomLabel">Catálogo</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body small">
-      <form>
-        <div class="row mb-3">
-          <label for="" class="col-sm-2 col-form-label">Título principal</label>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" id="textMain" value="BINGOS EL REY">
+  <!-- Modal New Quotation -->
+  <div class="modal fade" id="newQuotation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Datos Básicos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formBasicData" class="row g-3 needs-validation" novalidate>
+          
+          <div class="row">
+            <div class="col">
+              <label for="" class="col-form-label-sm">Nombre</label>
+              <input type="text" id="quotationName" class="form-control form-control-sm"
+                placeholder="Ingrese el nombre del contacto" aria-label="Nombre" required>
+            </div>
           </div>
-          <label for="" class="col-sm-2 col-form-label">Color principal</label>
-          <div class="col-sm-2">
-            <input id="colorMain" type="color" class="form-control" id="mainColor" value="#ee2745">
+          <div class="row">
+            <div class="col">
+              <label for="" class="col-form-label-sm">Evento</label>
+              <input type="text" id="quotationEvent" class="form-control form-control-sm"
+                placeholder="Ingrese el nombre del evento" aria-label="Evento" required>
+            </div>
           </div>
-        </div>
-        <button id="btnSaveConfig" type="button" class="btn btn-primary">Guardar</button>
+          <div class="row">
+            <div class="col">
+              <label for="" class="col-form-label-sm">Fecha y Hora</label>
+              <input type="datetime-local" id="quotationDate" min="2022-02-01" class="form-control form-control-sm"
+                placeholder="Fecha y Hora" aria-label="Fecha y Hora" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="" class="col-form-label-sm">Correo</label>
+              <input type="email" id="quotationEmail" class="form-control form-control-sm"
+                placeholder="Ingrese el correo electrónico" aria-label="Correo" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="" class="col-form-label-sm">Celular</label>
+              <input type="tel" id="quotationPhone" class="form-control form-control-sm"
+                placeholder="Número de celular" aria-label="Celular" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="" class="col-form-label-sm">Invitados</label>
+              <input type="number" id="quotationGuests" min="1" class="form-control form-control-sm" placeholder="0"
+                aria-label="Invitados" required>
+            </div>
+          </div>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button id="btnBasicData" type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+
       </form>
     </div>
   </div>
+</div>
 
 
+<!-- Modal New Item -->
+<div class="modal fade" id="newItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Adicionar Nuevo Ítem</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formBasicData" class="row g-3 needs-validation" novalidate>
+          <div class="row">
+            <div class="col">
+              <label for="" class="col-form-label-sm">Nombre</label>
+              <input type="text" id="itemName" class="form-control form-control-sm"
+                placeholder="Ingrese el nombre del ítem" aria-label="Nombre" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="" class="col-form-label-sm">Precio</label>
+              <input type="number" id="itemPrice" min="1" class="form-control form-control-sm" placeholder="Ingrese el valor"
+                aria-label="Precio" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="" class="col-form-label-sm">Descripción</label>
+              <input type="text" id="itemDesc" class="form-control form-control-sm"
+                placeholder="Ingrese la descripción del ítem" aria-label="Descripción" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="" class="col-form-label-sm">Imagen</label>
+              <input type="text" id="itemImage" class="form-control form-control-sm"
+                placeholder="Ingrese el link de la imagen" aria-label="Imagen" required>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button id="btnAddItem" type="submit" class="btn btn-primary">Crear</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
 
@@ -305,9 +322,11 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
-  
+
   <script type="text/javascript" src="data/datos.json"></script>
   <script type="text/javascript" src="js/script.js"></script>
 </body>
