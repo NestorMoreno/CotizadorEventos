@@ -30,45 +30,61 @@ var app = {
     "email": "",
     "phone": "",
   },
-  itemTemplate: '<li class="_grid shopping-cart--list-item">  <div class="card mb-3" >    <div class="row g-0">      <div class="col-9">        <div class="card-body">          <h6 class="card-title product-name">{{=name}}</h6> <div class="price product-single-price">${{=price}}</div>          <p class="card-text product-desc printable">{{=desc}}</p>        </div>      </div>      <div class="col-3 _column product-modifiers" data-product-price="{{=price}}">  <div class=col">    <button class="_btn _column product-subtract non-printable">&minus;</button>    <label class="printable">Cantidad</label>    <div class="_column product-qty">0</div>    <button class="_btn _column product-plus non-printable">&plus;</button>  </div>  <div class="row">    <div class="col-3">      <button class="_btn product-remove"><i class="bi bi-bag-x-fill"></i></button>    </div>    <div class="col-3">          </div>    <div class="col-6">      <div class="price product-total-price">$0.00</div>    </div>  </div></div></div><div class="row printable"><div class="col text-center">  <img src="{{=img}}" class="img-fluid" alt="..."></div></div></div>',
+  itemTemplate: '<li class="_grid shopping-cart--list-item">  <div class="card mb-3" >    <div class="row g-0">      <div class="col-9">        <div class="card-body">          <h6 class="card-title product-name">{{=name}}</h6> <div class="price product-single-price">${{=price}}</div>          <p class="card-text product-desc printable">{{=desc}}</p>        </div>      </div>      <div class="col-3 _column product-modifiers" data-product-price="{{=price}}">  <div class=col">    <button class="_btn _column product-subtract non-printable">&minus;</button>    <label class="printable">Cantidad</label>    <div class="_column product-qty">0</div>    <button class="_btn _column product-plus non-printable">&plus;</button>  </div>  <div class="row">    <div class="col-3">      <button class="_btn product-remove"><i class="bi bi-x"></i></button>    </div>    <div class="col-3">    <button class="_btn product-edit"><i class="bi bi-pencil"></i></button>      </div>    <div class="col-6">      <div class="price product-total-price">$0.00</div>    </div>  </div></div></div><div class="row printable"><div class="col text-center">  <img src="{{=img}}" class="img-fluid" alt="..."></div></div></div>',
   products: [
     {
+      "id": "1",
       "name": "Alquiler de Hacienda",
       "price": "100.000",
       "img": "https://haciendasanrafael.co/images/hacienda/Pgina251.jpg",
       "desc": "Hermosa casona con mas de 400 años de Historia, refleja la arquitectura colonial de la época, dentro de la casa encontrarán un salón para 100 personas"
     },
     {
+      "id": "2",
       "name": "Menú",
       "price": "89.000",
       "img": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "desc": "Entrada: Ensalada o crema. Fuerte: Carne de res o cerdo. Pechuga de pollo. Arroz o vegetales. Acompañamiento (papa) o ensalada. Postre: A escoger. Bebida: Gaseosa"
     },
     {
+      "id": "3",
       "name": "Menaje",
       "price": "220.000",
       "img": "https://haciendasanrafael.co/images/hacienda/S_R_1872.jpg",
       "desc": "Vajilla cuadrada, Cubiertos, Cristalería, Bandejas, jarras, hieleras, samovares, pala y sierra para ponqué."
     },
     {
+      "id": "4",
       "name": "Mobiliario",
       "price": "45.000",
       "img": "https://haciendasanrafael.co/images/hacienda/S_R_155.jpg",
       "desc": "Mesas redondas o rectangulares para invitados - 10 puestos c/u. Mesa redonda ponqué. Sillas Rimax sin brazos"
     },
     {
+      "id": "5",
       "name": "Decoración",
       "img": "https://haciendasanrafael.co/images/jardin/pPgina001_33.jpg",
       "price": "10.000",
       "desc": "Centros de mesa en flores y rosas o cilindros de cristal decorados. Arreglo de mesa de ponqué y copas principales decoradas. Decoración de cofre, pala y sierra (ponqué)"
     },
     {
+      "id": "6",
       "name": "Música",
       "img": "https://images.pexels.com/photos/1564668/pexels-photo-1564668.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "price": "60.000",
       "desc": "2 Cabinas de sonido, 1 Micrófono inalámbrico, 4 Luces audio-ritmicas y laser, 1 Camara de humo."
     }
   ],
+
+  //TODO: COnstruir
+  editItem: function(id){
+    var item = app.products.find(x => x.id == 3);
+    if (item) {
+      item.name = "Cambio de prueba";
+    }
+    app.renderCatalog();
+  },
+
 
   removeProduct: function () {
     "use strict";
@@ -142,6 +158,10 @@ var app = {
     $("#checkout-btn").on("click", app.PrintPDF);
     $("#btnBasicData").on("click", app.BasicData);
     $("#btnAddItem").on("click", app.AddItem);
+
+
+
+    $("#PR").on("click", app.editItem);
     
 
     // Datos de prueba
@@ -165,6 +185,7 @@ var app = {
     $(".product-plus").on("click", app.addProduct);
     $(".product-subtract").on("click", app.subtractProduct);
 
+    $(".product-edit").on("click", app.openEditItem);
   },
 
   setProductImages: function () {
@@ -244,8 +265,6 @@ var app = {
     
     $("#shopping-cart--list").html("");
 
-    
-
     app.products.push({
       'name': $("#itemName").val(),
       'img': $("#itemImage").val(),
@@ -258,7 +277,30 @@ var app = {
     $("#newItem").modal('hide');
     event.preventDefault();
 
+  },
+
+  openEditItem: function(){
+    
+
+    var item = app.products.find(x => x.id == 3);
+    if (item) {
+
+      $("#newItemtitle").text("Editar Ítem");
+      $("#itemName").val(item.name);
+      $("#itemImage").val(item.img);
+      $("#itemPrice").val(item.price);
+      $("#itemDesc").val(item.desc);
+    }
+
+    $("#newItem").modal('show');
+
+
+    
+
+
+
   }
+
 
 };
 

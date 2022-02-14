@@ -161,6 +161,26 @@ h1, .sub-heading {
   background-color: #c0392b;
   color: #ecf0f1;
 }
+
+.product-edit {
+  font-size: .875em;
+  /* margin-top: 3.35rem; */
+  background-color: #e6a327;
+  color: #ecf0f1;
+  width: 100%;
+  visibility: hidden;
+}
+.product-modifiers:hover .product-edit {
+  visibility: visible;
+}
+.product-edit:before {
+  margin-right: .5em;
+}
+.product-edit:hover {
+  background-color: #eea00e;
+  color: #ecf0f1;
+}
+
 .product-total-price {
   border-top: 1px solid #bdc3c7;
   color: #95a5a6;
